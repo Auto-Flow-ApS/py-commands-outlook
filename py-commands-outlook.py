@@ -306,7 +306,7 @@ def validate_project_parameters(parameters):
     
 def get_emails(emails, path, delimiter):
                 
-    with open(path, 'w', newline='') as csv_file:
+    with open(path, 'w', newline='', encoding='utf-8') as csv_file:
         writer = csv.writer(csv_file, delimiter=delimiter, quotechar='"', quoting=csv.QUOTE_ALL)
         writer.writerow(['email_id', 'received_date', 'received_time', 'unread', 'sender_name', 'sender_email', 'cc', 'subject', 'attachment_count', 'attachment_names'])
     
