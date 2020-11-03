@@ -10,7 +10,7 @@ When using this program, you might experience a warning from Outlook or potentia
 
 ## Installation
 
-1. Download the [latest version](https://github.com/foxtrot-alliance/py-commands-outlook/releases/download/v0.0.5/py-commands-outlook_v0.0.5.zip).
+1. Download the [latest version](https://github.com/Auto-Flow-ApS/py-commands-outlook/releases/tag/v0.0.5.1).
 2. Unzip the folder somewhere appropriate, we suggest directly on the C: drive for easier access. So, your path would be similar to "C:\py-commands-outlook_v0.0.5".
 3. After unzipping the files, you are now ready to use the program. The only file you will have to be concerned about is the actual .exe file in the folder, however, all the other files are required for the solution to run properly.
 4. Open Foxtrot (or any other RPA tool) to set up your action. In Foxtrot, you can utilize the functionality of the program via the DOS Command action (alternatively, the Powershell action).
