@@ -308,7 +308,7 @@ def get_emails(emails, path, delimiter):
                 
     with open(path, 'w', newline='', encoding='utf-8') as csv_file:
         writer = csv.writer(csv_file, delimiter=delimiter, quotechar='"', quoting=csv.QUOTE_ALL)
-        writer.writerow(['email_id', 'received_date', 'received_time', 'unread', 'sender_name', 'sender_email', 'cc', 'subject', 'attachment_count', 'attachment_names'])
+        writer.writerow(['email_id', 'received_date', 'received_time', 'unread', 'sender_name', 'sender_email', 'cc', 'subject', 'attachment_count', 'attachment_names', 'to', 'flag'])
     
         for email in emails:
             email_info = []
@@ -337,6 +337,10 @@ def get_emails(emails, path, delimiter):
                 attachments.append(attachment.DisplayName)
             attachments = str(attachments).replace(",", delimiter)
             email_info.append(attachments)
+
+            email_info.append(email.To)
+
+            email_info.append(email.FlagStatus) #0: No flag - 1: Completed - 2: Flag Marked
             
             writer.writerow(email_info)
 
