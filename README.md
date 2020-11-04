@@ -1,6 +1,8 @@
 # py-commands-outlook
 
-For support, please contact us: support@foxtrotalliance.com
+For support, please contact us: support@auto-flow.dk
+
+This fork, is an updated version of python-commands-outlook with a few small changes, mainly to the get_email() function.
 
 This program allows you to execute Outlook commands such as sending emails, getting all emails in a folder, reading emails, moving emails, and more. This is especially useful if you do not have access or is allowed to perform email actions using SMTP and IMAP server connections. You can run the program via the CMD or as part of an automation script in an RPA tool like Foxtrot. This solution is meant to supplement Foxtrots core email functionality and enable you to perform email automation via your local Outlook application instead of email server connections. The solution is written in Python using the module "pywin32". You can see the [full source code here](https://github.com/foxtrot-alliance/py-commands-outlook/blob/master/py-commands-outlook.py).
 
@@ -10,7 +12,7 @@ When using this program, you might experience a warning from Outlook or potentia
 
 ## Installation
 
-1. Download the [latest version](https://github.com/Auto-Flow-ApS/py-commands-outlook/releases/tag/v0.0.5.2).
+1. Download the [latest version](https://github.com/Auto-Flow-ApS/py-commands-outlook/releases/tag/v0.0.6).
 2. Unzip the folder somewhere appropriate, we suggest directly on the C: drive for easier access. So, your path would be similar to "C:\py-commands-outlook_v0.0.5".
 3. After unzipping the files, you are now ready to use the program. The only file you will have to be concerned about is the actual .exe file in the folder, however, all the other files are required for the solution to run properly.
 4. Open Foxtrot (or any other RPA tool) to set up your action. In Foxtrot, you can utilize the functionality of the program via the DOS Command action (alternatively, the Powershell action).
