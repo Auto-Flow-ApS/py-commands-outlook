@@ -635,9 +635,12 @@ def execute_command(parameters):
                 elif command.upper() == "ATTACHMENTS":
                     if traces is True:
                         print(datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S') + ": " + "=== * Saving attachments start * ===")
-                        
+
+                    counter = 0
+
                     for outlook_email_attachment in outlook_email.Attachments:
-                        save_path = os.path.join(path, outlook_email_attachment.FileName)
+                        counter += 1
+                        save_path = os.path.join(path, (counter + "_" + outlook_email_attachment.FileName))
                             
                         if traces is True:
                             print(datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S') + ": " + f"\tAttempting to save the attachment: {save_path}")
