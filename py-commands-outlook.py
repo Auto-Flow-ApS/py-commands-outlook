@@ -367,7 +367,8 @@ def send_email(outlook_msg, to, cc, bcc, subject, body, attachments, draft, trac
         if not draft:
             if traces is True:
                 print(datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S') + ": " + "\tAttempting to send email...")
-                
+
+            outlook_msg.Display()    
             outlook_msg.Send()
             
             if traces is True:
@@ -655,7 +656,10 @@ def execute_command(parameters):
                 
     except:
         if dispacted:
-            outlook.Quit()
+            try:
+                outlook.Quit()
+            except:
+                pass
             
         outlook_msg = None
         outlook_namespace = None
@@ -669,7 +673,10 @@ def execute_command(parameters):
         return "ERROR: Unexpected issue!"
     
     if dispacted:
-        outlook.Quit()
+        try:
+            outlook.Quit()
+        except:
+            pass
     
     outlook_msg = None
     outlook_namespace = None
