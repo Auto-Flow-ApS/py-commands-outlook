@@ -12,105 +12,105 @@ def retrieve_project_parameters():
     parameters = sys.argv
 
     parameters_number = parameters.index("-traces") if "-traces" in parameters else None
-    if parameters_number is not None:
+    if parameters_number != None:
         parameters_number = parameters_number + 1
         traces = parameters[parameters_number]
     else:
         traces = ""
 
     parameters_number = parameters.index("-command") if "-command" in parameters else None
-    if parameters_number is not None:
+    if parameters_number != None:
         parameters_number = parameters_number + 1
         command = parameters[parameters_number]
     else:
         command = ""
 
     parameters_number = parameters.index("-account") if "-account" in parameters else None
-    if parameters_number is not None:
+    if parameters_number != None:
         parameters_number = parameters_number + 1
         account = parameters[parameters_number]
     else:
         account = ""
 
     parameters_number = parameters.index("-email") if "-email" in parameters else None
-    if parameters_number is not None:
+    if parameters_number != None:
         parameters_number = parameters_number + 1
         email = parameters[parameters_number]
     else:
         email = ""
 
     parameters_number = parameters.index("-to") if "-to" in parameters else None
-    if parameters_number is not None:
+    if parameters_number != None:
         parameters_number = parameters_number + 1
         to = parameters[parameters_number]
     else:
         to = ""
 
     parameters_number = parameters.index("-cc") if "-cc" in parameters else None
-    if parameters_number is not None:
+    if parameters_number != None:
         parameters_number = parameters_number + 1
         cc = parameters[parameters_number]
     else:
         cc = ""
 
     parameters_number = parameters.index("-bcc") if "-bcc" in parameters else None
-    if parameters_number is not None:
+    if parameters_number != None:
         parameters_number = parameters_number + 1
         bcc = parameters[parameters_number]
     else:
         bcc = ""
 
     parameters_number = parameters.index("-subject") if "-subject" in parameters else None
-    if parameters_number is not None:
+    if parameters_number != None:
         parameters_number = parameters_number + 1
         subject = parameters[parameters_number]
     else:
         subject = ""
 
     parameters_number = parameters.index("-body") if "-body" in parameters else None
-    if parameters_number is not None:
+    if parameters_number != None:
         parameters_number = parameters_number + 1
         body = parameters[parameters_number]
     else:
         body = ""
 
     parameters_number = parameters.index("-attachments") if "-attachments" in parameters else None
-    if parameters_number is not None:
+    if parameters_number != None:
         parameters_number = parameters_number + 1
         attachments = parameters[parameters_number]
     else:
         attachments = ""
 
     parameters_number = parameters.index("-draft") if "-draft" in parameters else None
-    if parameters_number is not None:
+    if parameters_number != None:
         parameters_number = parameters_number + 1
         draft = parameters[parameters_number]
     else:
         draft = ""
 
     parameters_number = parameters.index("-folder") if "-folder" in parameters else None
-    if parameters_number is not None:
+    if parameters_number != None:
         parameters_number = parameters_number + 1
         folder = parameters[parameters_number]
     else:
         folder = ""
 
     parameters_number = parameters.index("-path") if "-path" in parameters else None
-    if parameters_number is not None:
+    if parameters_number != None:
         parameters_number = parameters_number + 1
         path = parameters[parameters_number]
     else:
         path = ""
 
     parameters_number = parameters.index("-delimiter") if "-delimiter" in parameters else None
-    if parameters_number is not None:
+    if parameters_number != None:
         parameters_number = parameters_number + 1
         delimiter = parameters[parameters_number]
     else:
         delimiter = ""
 
     parameters_number = parameters.index("-unread") if "-unread" in parameters else None
-    if parameters_number is not None:
+    if parameters_number != None:
         parameters_number = parameters_number + 1
         unread = parameters[parameters_number]
     else:
@@ -206,13 +206,13 @@ def validate_project_parameters(parameters):
     if traces is True:
         print(datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S') + ": " + "\tTo = " + str(to))
 
-    if cc.upper() is not "" and not "@" in cc:
+    if cc.upper() != "" and not "@" in cc:
         return "ERROR: Invalid cc parameter! Parameter = " + str(cc)
 
     if traces is True:
         print(datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S') + ": " + "\tCc = " + str(cc))
 
-    if bcc.upper() is not "" and not "@" in bcc:
+    if bcc.upper() != "" and not "@" in bcc:
         return "ERROR: Invalid bcc parameter! Parameter = " + str(bcc)
 
     if traces is True:
@@ -224,7 +224,7 @@ def validate_project_parameters(parameters):
     if traces is True:
         print(datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S') + ": " + "\tBody = " + str(body))
 
-    if command.upper() == "SEND" and attachments is not "":
+    if command.upper() == "SEND" and attachments != "":
         attachments = attachments.replace(";", ",")
         attachments = attachments.split(",")
         attachments = [attachment.strip() for attachment in attachments]
@@ -236,7 +236,7 @@ def validate_project_parameters(parameters):
     if traces is True:
         print(datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S') + ": " + "\tAttachments = " + str(attachments))
     
-    if draft is not "":
+    if draft != "":
         if draft.upper() == "TRUE":
             draft = True
         elif draft.upper() == "FALSE":
@@ -271,7 +271,7 @@ def validate_project_parameters(parameters):
     if traces is True:
         print(datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S') + ": " + "\tDelimiter = " + str(delimiter))
         
-    if unread is not "":
+    if unread != "":
         if unread.upper() == "TRUE":
             unread = True
         elif unread.upper() == "FALSE":
@@ -314,8 +314,8 @@ def get_emails(emails, path, delimiter):
             email_info = []
             
             email_info.append(email.EntryID)
-            email_info.append(str(email.ReceivedTime.month) + '/' + str(email.ReceivedTime.day) + '/' + str(email.ReceivedTime.year))
-            email_info.append(str(email.ReceivedTime.hour).zfill(2) + ':' + str(email.ReceivedTime.minute).zfill(2) + ':' + str(email.ReceivedTime.second).zfill(2))
+            email_info.append(str(email.SentOn.month) + '/' + str(email.SentOn.day) + '/' + str(email.SentOn.year))
+            email_info.append(str(email.SentOn.hour).zfill(2) + ':' + str(email.SentOn.minute).zfill(2) + ':' + str(email.SentOn.second).zfill(2))
             email_info.append(str(email.UnRead))
             
             try:
@@ -417,9 +417,9 @@ def execute_command(parameters):
     outlook_accounts = outlook.Session.Accounts
     outlook_accounts_list = [outlook_account.DisplayName for outlook_account in outlook_accounts]
     
-    if account is not "":
+    if account != "":
         if not account in outlook_accounts_list:
-            return f"ERROR: The specified account ({account}) is not one of the available accounts ({outlook_accounts_list})"
+            return f"ERROR: The specified account ({account}) != one of the available accounts ({outlook_accounts_list})"
     
     try:
         if command.upper() == "SEND":
@@ -431,7 +431,7 @@ def execute_command(parameters):
                     
             outlook_msg = outlook.CreateItem(0)
             
-            if account is not "":
+            if account != "":
                 if traces is True:
                     print(datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S') + ": " + "\tAttempting to select account: " + account)
                     
@@ -453,7 +453,7 @@ def execute_command(parameters):
                 print(datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S') + ": " + f"=== * Sending email end (draft: {str(draft)}) * ===")
             
         else:
-            if account is not "":
+            if account != "":
                 if traces is True:
                     print(datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S') + ": " + "\tAttempting to select account: " + account)
                     
@@ -480,7 +480,7 @@ def execute_command(parameters):
                 if traces is True:
                     print(datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S') + ": " + f"=== * Getting emails start * ===")
                 
-                if folder is not "":
+                if folder != "":
                     if traces is True:
                         print(datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S') + ": " + "\tAttempting to select folder: " + folder)
                         
@@ -518,7 +518,7 @@ def execute_command(parameters):
                         
                     outlook_email_body = outlook_email.Body
                         
-                    if path is not "":
+                    if path != "":
                         if traces is True:
                             print(datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S') + ": " + "\tWriting the body to file...")
                         
@@ -557,7 +557,7 @@ def execute_command(parameters):
                     if traces is True:
                         print(datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S') + ": " + f"=== * Moving email start * ===")
                 
-                    if folder is not "":
+                    if folder != "":
                         if traces is True:
                             print(datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S') + ": " + "\tAttempting to select folder: " + folder)
                             
